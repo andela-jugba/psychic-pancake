@@ -1,0 +1,1056 @@
+{
+  "contractName": "CryptoArtTrade",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_cryptoArtId",
+          "type": "uint256"
+        },
+        {
+          "name": "_artPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCryptoArtPrice",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "creatNewCrptoArt",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "artToOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_cryptoArtId",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyCryptoArt",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "arts",
+      "outputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "uuid",
+          "type": "uint256"
+        },
+        {
+          "name": "imageUrl",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "ownArtCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_artUuid",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "artId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "_sender",
+          "type": "address"
+        }
+      ],
+      "name": "NewArtCreated",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x60606040526010600155600154600a0a6002556040805190810160405280600c81526020017f687474703a2f2f696d61676500000000000000000000000000000000000000008152506003908051906020019061005d9291906100a3565b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610148565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100e457805160ff1916838001178555610112565b82800160010185558215610112579182015b828111156101115782518255916020019190600101906100f6565b5b50905061011f9190610123565b5090565b61014591905b80821115610141576000816000905550600101610129565b5090565b90565b610b9b806101576000396000f30060606040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631b98c00f14610093578063426d0b70146100bf5780638da5cb5b1461011c578063b10cb87a14610171578063dcfc2e05146101d4578063e57a104a146101ec578063f2fde38b14610335578063f87e07671461036e575b600080fd5b341561009e57600080fd5b6100bd60048080359060200190919080359060200190919050506103bb565b005b34156100ca57600080fd5b61011a600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061042d565b005b341561012757600080fd5b61012f610448565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561017c57600080fd5b610192600480803590602001909190505061046d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101ea60048080359060200190919050506104a0565b005b34156101f757600080fd5b61020d60048080359060200190919050506104d4565b6040518080602001848152602001806020018381038352868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102a05780601f10610275576101008083540402835291602001916102a0565b820191906000526020600020905b81548152906001019060200180831161028357829003601f168201915b50508381038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156103235780601f106102f857610100808354040283529160200191610323565b820191906000526020600020905b81548152906001019060200180831161030657829003601f168201915b50509550505050505060405180910390f35b341561034057600080fd5b61036c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061050b565b005b341561037957600080fd5b6103a5600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105db565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610429578060076000848152602001908152602001600020819055505b5050565b6000610438826105f3565b90506104448282610675565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60056020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006007600083815260200190815260200160002054905080341415156104c657600080fd5b6104d082336109b3565b5050565b6004818154811015156104e357fe5b9060005260206000209060030201600091509050806000019080600101549080600201905083565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156105d857600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415156105d757806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b50565b60066020528060005260406000206000915090505481565b600080826040518082805190602001908083835b60208310151561062c5780518252602082019150602081019050602083039250610607565b6001836020036101000a03801982511681845116808217855250505050505090500191505060405180910390206001900490506002548181151561066c57fe5b06915050919050565b60006004805480600101828161068b9190610a09565b9160005260206000209060030201600060606040519081016040528087815260200186815260200160038054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156107495780601f1061071e57610100808354040283529160200191610749565b820191906000526020600020905b81548152906001019060200180831161072c57829003601f168201915b505050505081525090919091506000820151816000019080519060200190610772929190610a3b565b50602082015181600101556040820151816002019080519060200190610799929190610a3b565b5050509050336005600083815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000600660003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205414151561087f576000600660003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b600660003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081548092919060010191905055507f582381568b1cdf711182dbfcc771f27c20d7c3db604bc556e4923c5af710375f8284833360405180858152602001806020018481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825285818151815260200191508051906020019080838360005b83811015610971578082015181840152602081019050610956565b50505050905090810190601f16801561099e5780820380516001836020036101000a031916815260200191505b509550505050505060405180910390a1505050565b806005600084815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b815481835581811511610a3657600302816003028360005260206000209182019101610a359190610abb565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610a7c57805160ff1916838001178555610aaa565b82800160010185558215610aaa579182015b82811115610aa9578251825591602001919060010190610a8e565b5b509050610ab79190610b02565b5090565b610aff91905b80821115610afb5760008082016000610ada9190610b27565b6001820160009055600282016000610af29190610b27565b50600301610ac1565b5090565b90565b610b2491905b80821115610b20576000816000905550600101610b08565b5090565b90565b50805460018160011615610100020316600290046000825580601f10610b4d5750610b6c565b601f016020900490600052602060002090810190610b6b9190610b02565b5b505600a165627a7a7230582048cb8861ec4ac0906a4fa9af76f40a40d183b50213b537c57a612d4513c7124d0029",
+  "deployedBytecode": "0x60606040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631b98c00f14610093578063426d0b70146100bf5780638da5cb5b1461011c578063b10cb87a14610171578063dcfc2e05146101d4578063e57a104a146101ec578063f2fde38b14610335578063f87e07671461036e575b600080fd5b341561009e57600080fd5b6100bd60048080359060200190919080359060200190919050506103bb565b005b34156100ca57600080fd5b61011a600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061042d565b005b341561012757600080fd5b61012f610448565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561017c57600080fd5b610192600480803590602001909190505061046d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101ea60048080359060200190919050506104a0565b005b34156101f757600080fd5b61020d60048080359060200190919050506104d4565b6040518080602001848152602001806020018381038352868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102a05780601f10610275576101008083540402835291602001916102a0565b820191906000526020600020905b81548152906001019060200180831161028357829003601f168201915b50508381038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156103235780601f106102f857610100808354040283529160200191610323565b820191906000526020600020905b81548152906001019060200180831161030657829003601f168201915b50509550505050505060405180910390f35b341561034057600080fd5b61036c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061050b565b005b341561037957600080fd5b6103a5600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105db565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610429578060076000848152602001908152602001600020819055505b5050565b6000610438826105f3565b90506104448282610675565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60056020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006007600083815260200190815260200160002054905080341415156104c657600080fd5b6104d082336109b3565b5050565b6004818154811015156104e357fe5b9060005260206000209060030201600091509050806000019080600101549080600201905083565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156105d857600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415156105d757806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b50565b60066020528060005260406000206000915090505481565b600080826040518082805190602001908083835b60208310151561062c5780518252602082019150602081019050602083039250610607565b6001836020036101000a03801982511681845116808217855250505050505090500191505060405180910390206001900490506002548181151561066c57fe5b06915050919050565b60006004805480600101828161068b9190610a09565b9160005260206000209060030201600060606040519081016040528087815260200186815260200160038054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156107495780601f1061071e57610100808354040283529160200191610749565b820191906000526020600020905b81548152906001019060200180831161072c57829003601f168201915b505050505081525090919091506000820151816000019080519060200190610772929190610a3b565b50602082015181600101556040820151816002019080519060200190610799929190610a3b565b5050509050336005600083815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000600660003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205414151561087f576000600660003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b600660003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081548092919060010191905055507f582381568b1cdf711182dbfcc771f27c20d7c3db604bc556e4923c5af710375f8284833360405180858152602001806020018481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825285818151815260200191508051906020019080838360005b83811015610971578082015181840152602081019050610956565b50505050905090810190601f16801561099e5780820380516001836020036101000a031916815260200191505b509550505050505060405180910390a1505050565b806005600084815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b815481835581811511610a3657600302816003028360005260206000209182019101610a359190610abb565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610a7c57805160ff1916838001178555610aaa565b82800160010185558215610aaa579182015b82811115610aa9578251825591602001919060010190610a8e565b5b509050610ab79190610b02565b5090565b610aff91905b80821115610afb5760008082016000610ada9190610b27565b6001820160009055600282016000610af29190610b27565b50600301610ac1565b5090565b90565b610b2491905b80821115610b20576000816000905550600101610b08565b5090565b90565b50805460018160011615610100020316600290046000825580601f10610b4d5750610b6c565b601f016020900490600052602060002090810190610b6b9190610b02565b5b505600a165627a7a7230582048cb8861ec4ac0906a4fa9af76f40a40d183b50213b537c57a612d4513c7124d0029",
+  "sourceMap": "59:580:0:-;;;129:2:1;111:20;;162:10;;156:2;:16;137:35;;178:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;275:10:2;267:5;;:18;;;;;;;;;;;;;;;;;;59:580:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "59:580:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;151:139;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1032:140:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;217:20:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;420:41:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;296:208:0;;;;;;;;;;;;;;;;;;396:17:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;362:110:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;467:42:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;151:139:0;339:5:2;;;;;;;;;;;325:19;;:10;:19;;;321:32;;;274:9:0;242:15;:29;258:12;242:29;;;;;;;;;;;:41;;;;321:32:2;151:139:0;;:::o;1032:140:1:-;1088:13;1104:25;1124:4;1104:19;:25::i;:::-;1088:41;;1139:26;1150:4;1156:8;1139:10;:26::i;:::-;1032:140;;:::o;217:20:2:-;;;;;;;;;;;;;:::o;420:41:1:-;;;;;;;;;;;;;;;;;;;;;;:::o;296:208:0:-;364:10;377:15;:29;393:12;377:29;;;;;;;;;;;;364:42;;437:5;424:9;:18;416:27;;;;;;;;453:44;472:12;486:10;453:18;:44::i;:::-;296:208;;:::o;396:17:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;362:110:2:-;339:5;;;;;;;;;;;325:19;;:10;:19;;;321:32;;;447:1;427:22;;:8;:22;;;;423:44;;;459:8;451:5;;:16;;;;;;;;;;;;;;;;;;423:44;321:32;362:110;:::o;467:42:1:-;;;;;;;;;;;;;;;;;:::o;869:157::-;934:4;950:9;977:5;967:16;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:2;51:6;36:153;;;182:3;176:5;171:3;164:6;98:2;93:3;89;82:19;;123:2;118:3;114;107:19;;148:2;143:3;139;132:19;;36:153;;;274:1;267:3;263:2;259:3;254;250;246;315:4;311:3;305;299:5;295:3;356:4;350:3;344:5;340:3;389:7;380;377:2;372:3;365:6;3:399;;;;;;;;;;;;;;;;;;;962:22:1;;;950:34;;1008:11;;1001:4;:18;;;;;;;;994:25;;869:157;;;;:::o;516:347::-;581:7;591:4;:45;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;601:34;;;;;;;;;605:5;601:34;;;;612:5;601:34;;;;619:15;601:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;591:45;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;581:55;;663:10;646;:14;657:2;646:14;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;714:1;687:11;:23;699:10;687:23;;;;;;;;;;;;;;;;:28;;683:86;;;757:1;731:11;:23;743:10;731:23;;;;;;;;;;;;;;;:27;;;;683:86;778:11;:23;790:10;778:23;;;;;;;;;;;;;;;;:25;;;;;;;;;;;;;813:43;827:5;834;841:2;845:10;813:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;516:347:1;;;:::o;510:127:0:-;622:8;595:10;:24;606:12;595:24;;;;;;;;;;;;:35;;;;;;;;;;;;;;;;;;510:127;;:::o;59:580::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
+  "source": "pragma solidity ^0.4.17;\n\nimport './CrytoArtFactory.sol';\n\ncontract CryptoArtTrade is CrytoArtFactory {\n    mapping (uint=>uint) cryptoartPrices;\n\n    function setCryptoArtPrice(uint _cryptoArtId, uint _artPrice) external onlyOwner {\n        cryptoartPrices[_cryptoArtId] = _artPrice;\n    }\n\n    function buyCryptoArt(uint _cryptoArtId) external payable {\n        uint price = cryptoartPrices[_cryptoArtId];\n        require(msg.value == price);\n        _setCryptoArtOwner(_cryptoArtId, msg.sender);\n    }\n\n    function _setCryptoArtOwner(uint _cryptoartId, address newOwner ) internal {\n        artToOwner[_cryptoartId] = newOwner;\n    }\n}",
+  "sourcePath": "/Users/jugba/side-projects/crypto-art/contracts/CryptoArtTrade.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/jugba/side-projects/crypto-art/contracts/CryptoArtTrade.sol",
+      "exportedSymbols": {
+        "CryptoArtTrade": [
+          64
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".17"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 202,
+          "absolutePath": "/Users/jugba/side-projects/crypto-art/contracts/CrytoArtFactory.sol",
+          "file": "./CrytoArtFactory.sol",
+          "scope": 65,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 2,
+        "name": "ImportDirective",
+        "src": "26:31:0"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            201,
+            242
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            64,
+            201,
+            242
+          ],
+          "name": "CryptoArtTrade",
+          "scope": 65
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "CrytoArtFactory",
+                  "referencedDeclaration": 201,
+                  "type": "contract CrytoArtFactory"
+                },
+                "id": 3,
+                "name": "UserDefinedTypeName",
+                "src": "86:15:0"
+              }
+            ],
+            "id": 4,
+            "name": "InheritanceSpecifier",
+            "src": "86:15:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "cryptoartPrices",
+              "scope": 64,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(uint256 => uint256)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(uint256 => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 5,
+                    "name": "ElementaryTypeName",
+                    "src": "117:4:0"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 6,
+                    "name": "ElementaryTypeName",
+                    "src": "123:4:0"
+                  }
+                ],
+                "id": 7,
+                "name": "Mapping",
+                "src": "108:20:0"
+              }
+            ],
+            "id": 8,
+            "name": "VariableDeclaration",
+            "src": "108:36:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "name": "setCryptoArtPrice",
+              "payable": false,
+              "scope": 64,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_cryptoArtId",
+                      "scope": 24,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 9,
+                        "name": "ElementaryTypeName",
+                        "src": "178:4:0"
+                      }
+                    ],
+                    "id": 10,
+                    "name": "VariableDeclaration",
+                    "src": "178:17:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_artPrice",
+                      "scope": 24,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 11,
+                        "name": "ElementaryTypeName",
+                        "src": "197:4:0"
+                      }
+                    ],
+                    "id": 12,
+                    "name": "VariableDeclaration",
+                    "src": "197:14:0"
+                  }
+                ],
+                "id": 13,
+                "name": "ParameterList",
+                "src": "177:35:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 16,
+                "name": "ParameterList",
+                "src": "232:0:0"
+              },
+              {
+                "attributes": {
+                  "arguments": [
+                    null
+                  ]
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 223,
+                      "type": "modifier ()",
+                      "value": "onlyOwner"
+                    },
+                    "id": 14,
+                    "name": "Identifier",
+                    "src": "222:9:0"
+                  }
+                ],
+                "id": 15,
+                "name": "ModifierInvocation",
+                "src": "222:9:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 8,
+                                  "type": "mapping(uint256 => uint256)",
+                                  "value": "cryptoartPrices"
+                                },
+                                "id": 17,
+                                "name": "Identifier",
+                                "src": "242:15:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 10,
+                                  "type": "uint256",
+                                  "value": "_cryptoArtId"
+                                },
+                                "id": 18,
+                                "name": "Identifier",
+                                "src": "258:12:0"
+                              }
+                            ],
+                            "id": 19,
+                            "name": "IndexAccess",
+                            "src": "242:29:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 12,
+                              "type": "uint256",
+                              "value": "_artPrice"
+                            },
+                            "id": 20,
+                            "name": "Identifier",
+                            "src": "274:9:0"
+                          }
+                        ],
+                        "id": 21,
+                        "name": "Assignment",
+                        "src": "242:41:0"
+                      }
+                    ],
+                    "id": 22,
+                    "name": "ExpressionStatement",
+                    "src": "242:41:0"
+                  }
+                ],
+                "id": 23,
+                "name": "Block",
+                "src": "232:58:0"
+              }
+            ],
+            "id": 24,
+            "name": "FunctionDefinition",
+            "src": "151:139:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "buyCryptoArt",
+              "payable": true,
+              "scope": 64,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_cryptoArtId",
+                      "scope": 49,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 25,
+                        "name": "ElementaryTypeName",
+                        "src": "318:4:0"
+                      }
+                    ],
+                    "id": 26,
+                    "name": "VariableDeclaration",
+                    "src": "318:17:0"
+                  }
+                ],
+                "id": 27,
+                "name": "ParameterList",
+                "src": "317:19:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 28,
+                "name": "ParameterList",
+                "src": "354:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        30
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "price",
+                          "scope": 49,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 29,
+                            "name": "ElementaryTypeName",
+                            "src": "364:4:0"
+                          }
+                        ],
+                        "id": 30,
+                        "name": "VariableDeclaration",
+                        "src": "364:10:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 8,
+                              "type": "mapping(uint256 => uint256)",
+                              "value": "cryptoartPrices"
+                            },
+                            "id": 31,
+                            "name": "Identifier",
+                            "src": "377:15:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 26,
+                              "type": "uint256",
+                              "value": "_cryptoArtId"
+                            },
+                            "id": 32,
+                            "name": "Identifier",
+                            "src": "393:12:0"
+                          }
+                        ],
+                        "id": 33,
+                        "name": "IndexAccess",
+                        "src": "377:29:0"
+                      }
+                    ],
+                    "id": 34,
+                    "name": "VariableDeclarationStatement",
+                    "src": "364:42:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 257,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 35,
+                            "name": "Identifier",
+                            "src": "416:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "value",
+                                  "referencedDeclaration": null,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 254,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 36,
+                                    "name": "Identifier",
+                                    "src": "424:3:0"
+                                  }
+                                ],
+                                "id": 37,
+                                "name": "MemberAccess",
+                                "src": "424:9:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 30,
+                                  "type": "uint256",
+                                  "value": "price"
+                                },
+                                "id": 38,
+                                "name": "Identifier",
+                                "src": "437:5:0"
+                              }
+                            ],
+                            "id": 39,
+                            "name": "BinaryOperation",
+                            "src": "424:18:0"
+                          }
+                        ],
+                        "id": 40,
+                        "name": "FunctionCall",
+                        "src": "416:27:0"
+                      }
+                    ],
+                    "id": 41,
+                    "name": "ExpressionStatement",
+                    "src": "416:27:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 63,
+                              "type": "function (uint256,address)",
+                              "value": "_setCryptoArtOwner"
+                            },
+                            "id": 42,
+                            "name": "Identifier",
+                            "src": "453:18:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 26,
+                              "type": "uint256",
+                              "value": "_cryptoArtId"
+                            },
+                            "id": 43,
+                            "name": "Identifier",
+                            "src": "472:12:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 254,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 44,
+                                "name": "Identifier",
+                                "src": "486:3:0"
+                              }
+                            ],
+                            "id": 45,
+                            "name": "MemberAccess",
+                            "src": "486:10:0"
+                          }
+                        ],
+                        "id": 46,
+                        "name": "FunctionCall",
+                        "src": "453:44:0"
+                      }
+                    ],
+                    "id": 47,
+                    "name": "ExpressionStatement",
+                    "src": "453:44:0"
+                  }
+                ],
+                "id": 48,
+                "name": "Block",
+                "src": "354:150:0"
+              }
+            ],
+            "id": 49,
+            "name": "FunctionDefinition",
+            "src": "296:208:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "_setCryptoArtOwner",
+              "payable": false,
+              "scope": 64,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_cryptoartId",
+                      "scope": 63,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 50,
+                        "name": "ElementaryTypeName",
+                        "src": "538:4:0"
+                      }
+                    ],
+                    "id": 51,
+                    "name": "VariableDeclaration",
+                    "src": "538:17:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "newOwner",
+                      "scope": 63,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 52,
+                        "name": "ElementaryTypeName",
+                        "src": "557:7:0"
+                      }
+                    ],
+                    "id": 53,
+                    "name": "VariableDeclaration",
+                    "src": "557:16:0"
+                  }
+                ],
+                "id": 54,
+                "name": "ParameterList",
+                "src": "537:38:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 55,
+                "name": "ParameterList",
+                "src": "585:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 104,
+                                  "type": "mapping(uint256 => address)",
+                                  "value": "artToOwner"
+                                },
+                                "id": 56,
+                                "name": "Identifier",
+                                "src": "595:10:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 51,
+                                  "type": "uint256",
+                                  "value": "_cryptoartId"
+                                },
+                                "id": 57,
+                                "name": "Identifier",
+                                "src": "606:12:0"
+                              }
+                            ],
+                            "id": 58,
+                            "name": "IndexAccess",
+                            "src": "595:24:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 53,
+                              "type": "address",
+                              "value": "newOwner"
+                            },
+                            "id": 59,
+                            "name": "Identifier",
+                            "src": "622:8:0"
+                          }
+                        ],
+                        "id": 60,
+                        "name": "Assignment",
+                        "src": "595:35:0"
+                      }
+                    ],
+                    "id": 61,
+                    "name": "ExpressionStatement",
+                    "src": "595:35:0"
+                  }
+                ],
+                "id": 62,
+                "name": "Block",
+                "src": "585:52:0"
+              }
+            ],
+            "id": 63,
+            "name": "FunctionDefinition",
+            "src": "510:127:0"
+          }
+        ],
+        "id": 64,
+        "name": "ContractDefinition",
+        "src": "59:580:0"
+      }
+    ],
+    "id": 65,
+    "name": "SourceUnit",
+    "src": "0:639:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-10T21:53:48.166Z"
+}
