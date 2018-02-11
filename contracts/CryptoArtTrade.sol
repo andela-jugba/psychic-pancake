@@ -3,7 +3,7 @@ pragma solidity ^0.4.17;
 import './CrytoArtFactory.sol';
 
 contract CryptoArtTrade is CrytoArtFactory {
-    mapping (uint=>uint) cryptoartPrices;
+    mapping (uint=>uint) public cryptoartPrices;
 
     function setCryptoArtPrice(uint _cryptoArtId, uint _artPrice) public {
         cryptoartPrices[_cryptoArtId] = _artPrice;
@@ -17,5 +17,9 @@ contract CryptoArtTrade is CrytoArtFactory {
 
     function _setCryptoArtOwner(uint _cryptoartId, address newOwner ) internal {
         artToOwner[_cryptoartId] = newOwner;
+    }
+
+    function getCryptoArtPrice(uint _cryptoArtId) public view returns (uint ) {
+        return cryptoartPrices[_cryptoArtId];
     }
 }
