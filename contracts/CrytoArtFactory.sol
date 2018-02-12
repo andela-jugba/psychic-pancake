@@ -37,4 +37,16 @@ contract CrytoArtFactory is Ownable {
         uint randUuid = _generateRandomUuid(name);
         _createArt(name, randUuid);
     }
+
+    function _getAllCryptoArts() internal view returns (string[]) {
+        string[] memory allArts = new string[](arts.length);
+        for (uint i = 0; i < arts.length; i++) {
+         allArts[i] = arts[i].imageUrl;
+        }
+        return allArts;
+    }
+
+    function getAllArts() external view returns(string[]) {
+        return _getAllCryptoArts();
+    }
 }

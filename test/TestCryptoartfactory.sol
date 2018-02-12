@@ -14,4 +14,12 @@ contract TestCryptoartfactory {
         Assert.equal(crytoArtFactory.ownArtCount(msg.sender), expected, "It should have a length of one");
 
     }
+
+    function testGetAllCryptoArts() {
+        crytoArtFactory.creatNewCrptoArt("Art 002");
+        uint expected = 1;
+
+        Assert.equal(crytoArtFactory.getAllCryptoArts().length, expected, "It should have a length of one");
+    
+    }
 }
