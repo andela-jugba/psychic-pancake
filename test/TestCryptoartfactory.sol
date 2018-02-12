@@ -15,11 +15,12 @@ contract TestCryptoartfactory {
 
     }
 
-    function testGetAllCryptoArts() {
+    function testGetCryptoArtCount() {
         crytoArtFactory.creatNewCrptoArt("Art 002");
-        uint expected = 1;
+        crytoArtFactory.creatNewCrptoArt("Art 003");
+        uint expected = 3;
 
-        Assert.equal(crytoArtFactory.getAllCryptoArts().length, expected, "It should have a length of one");
+        Assert.equal(crytoArtFactory.getAllArtsCount(), expected, "It should have a length of one");
     
     }
 }

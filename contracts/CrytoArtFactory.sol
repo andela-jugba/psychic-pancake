@@ -46,7 +46,7 @@ contract CrytoArtFactory is Ownable {
         return allArts;
     }
 
-    function getAllArts() external view returns(string[]) {
-        return _getAllCryptoArts();
+    function getAllArtsCount() public view returns(uint) {
+        return arts.length;
     }
 }
