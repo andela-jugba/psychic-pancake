@@ -27,9 +27,8 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-      - post:
-        - testrpc
-            background: true
+      - run: testrpc
+          background: true
       - sleep 5
 
 
