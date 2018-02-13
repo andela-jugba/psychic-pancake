@@ -2,7 +2,9 @@ machine:
   node:
     version: 8.9.1
   post:
+    - npm install testrpc
     - testrpc
+        background: true
     - sleep 5
 
 dependencies:
