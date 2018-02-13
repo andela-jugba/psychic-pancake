@@ -11,10 +11,10 @@ contract('CryptoArts', function(accounts){
         CrytoArtFactory.deployed().then(function(deployed){
             let cryptoartInstance = deployed;
             createArt = cryptoartInstance.NewArtCreated();
-            createArt.watch(function(err, results){
-                console.log(results);
-                assert.equal(results,{}, "Events")
-            })
+            // createArt.watch(function(err, results){
+            //     console.log(results);
+            //     return 0;
+            // })
            return cryptoartInstance;
         }).then(function(artinstance){
             artinstance.creatNewCrptoArt("Art 001", {from: accounts[0]});
@@ -25,4 +25,18 @@ contract('CryptoArts', function(accounts){
             assert.equal(count, 1, "It should be one")
         })
     } )
+
+    it("It should getAllArtsCount", () => {
+        CrytoArtFactory.deployed().then((deployed) => {
+            let cryptoartInstance = deployed;
+            return cryptoartInstance;
+        }).then((cryptoartInstance) => {
+            cryptoartInstance.creatNewCrptoArt("Art 002", {from: accounts[0]});
+            return cryptoartInstance;
+        }).then((cryptoartInstance) => {
+            return cryptoartInstance.getAllArtsCount.call();
+        }).then((count) => {
+            assert.equal(count, 2, "The number of arts should be correct"); 
+        })
+    })
 });

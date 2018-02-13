@@ -1,0 +1,30 @@
+machine:
+  node:
+    version: 8.9.1
+  post:
+    - testrpc
+    - sleep 5
+
+dependencies:
+  override:
+    - node ./yarn-1.0.2.js cache clean
+    - node ./yarn-1.0.2.js install --frozen-lockfile
+  cache_directories:
+    - ~/.cache/yarn
+  pre:
+    - gem install scss_lint
+
+test:
+  override:
+    - node ./yarn-1.0.2.js build
+    - node ./yarn-1.0.2.js run ci
+
+notify:
+  webhooks:
+  - url: 
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - 

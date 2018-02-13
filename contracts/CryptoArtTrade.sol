@@ -19,7 +19,7 @@ contract CryptoArtTrade is CrytoArtFactory {
         artToOwner[_cryptoartId] = newOwner;
     }
 
-    function getCryptoArtPrice(uint _cryptoArtId) public view returns (uint ) {
+    function getCryptoArtPrice(uint _cryptoArtId) public view returns (uint) {
         return cryptoartPrices[_cryptoArtId];
     }
 }

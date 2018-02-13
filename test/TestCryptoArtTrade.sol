@@ -9,8 +9,8 @@ contract TestCryptoArtTrade {
 
     function testSetCryptoArtPrices() {
         cryptoArtTrade.creatNewCrptoArt("Art 001");
-        cryptoArtTrade.setCryptoArtPrice(0, 0.001 ether);
-        address expected = cryptoArtTrade.artToOwner(0);
-        Assert.equal(msg.sender, expected, "Should be equal");
+        cryptoArtTrade.setCryptoArtPrice(0, 1);
+        uint expected = cryptoArtTrade.getCryptoArtPrice(0);
+        Assert.equal(1, expected, "Should be equal");
     }
 }

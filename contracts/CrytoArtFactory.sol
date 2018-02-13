@@ -49,4 +49,8 @@ contract CrytoArtFactory is Ownable {
     function getAllArtsCount() public view returns(uint) {
         return arts.length;
     }
+
+    function getOwnerArtCount(address _owner) public view returns (uint) {
+        return ownArtCount[_owner];
+    }
 }
