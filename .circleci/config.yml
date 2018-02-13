@@ -33,7 +33,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn ganache-cli
+      - run: 
+          name: run test rpc network
+          command: yarn ganache-cli
           background: true
 
       # run tests!
