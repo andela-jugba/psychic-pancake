@@ -4,9 +4,11 @@ import './CrytoArtFactory.sol';
 
 contract CryptoArtTrade is CrytoArtFactory {
     mapping (uint=>uint) public cryptoartPrices;
+    uint[] prices;
 
     function setCryptoArtPrice(uint _cryptoArtId, uint _artPrice) public {
         cryptoartPrices[_cryptoArtId] = _artPrice;
+        prices.push(_artPrice);
     }
 
     function buyCryptoArt(uint _cryptoArtId) external payable {
@@ -21,5 +23,9 @@ contract CryptoArtTrade is CrytoArtFactory {
 
     function getCryptoArtPrice(uint _cryptoArtId) public view returns (uint) {
         return cryptoartPrices[_cryptoArtId];
+    }
+
+    function getAllPrices() public view returns(uint[]){
+        return prices;
     }
 }
