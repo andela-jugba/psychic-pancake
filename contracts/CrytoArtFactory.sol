@@ -11,6 +11,7 @@ contract CrytoArtFactory is Ownable {
         string name;
         uint uuid;
         string imageUrl;
+        address ownerAddress;
     }
 
     Art[] public arts;
