@@ -20,7 +20,7 @@ contract CrytoArtFactory is Ownable {
     mapping (address=>uint) public ownArtCount;
 
     function _createArt(string _name, uint _uuid) internal {
-        uint id = arts.push(Art(_name, _uuid, defaultImageUrl));
+        uint id = arts.push(Art(_name, _uuid, defaultImageUrl, msg.sender));
         artToOwner[id] = msg.sender;
         if (ownArtCount[msg.sender] != 0) {
             ownArtCount[msg.sender] = 0;
